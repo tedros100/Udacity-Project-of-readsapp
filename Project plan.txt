@@ -1,3 +1,5 @@
+I have been working on this project for a while using class component for almost in the last couple months. But in the the last month i have been studying on functional compnent and more updated version of react. 
+
 step1
 creating npx create react app and clone all files to the project
 
@@ -117,6 +119,8 @@ inorder to use the back and forward on browser we can use the react-router.
 import{browserRouter}
 step 11 usedebounce.
 we can usedebounce() to get the limited number of api called.
+Step 11
+i Created a hook to use the code more efficinetly
 
 Resource used.
 React document, udemy Functional react document, stackOverFlow, Github/james Presit, youtube,  
