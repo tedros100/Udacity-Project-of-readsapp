@@ -1,0 +1,124 @@
+step1
+creating npx create react app and clone all files to the project
+
+step 2
+plane how to to structure components and figure out components and choosing functional components
+instead of class components
+<Header>, <books>, <shelf> & <shelves>
+
+step 3
+<shelves> 
+    const currentlyReading = []
+    const whatToRead = []
+    const read = []
+    
+    <Shelf title="Currently Reading" books={currentlyReading} 
+    <Shelf title="Want To Read" books={whatToRead} 
+    <Shelf title="Read" books={read} 
+
+step 4 
+    const currentlyReading = books.filter((book) => book.shelf === "currentlyReading");
+    const whatToRead = books.filter((book) => book.shelf === "wantToRead");
+    const read = books.filter((book) => book.shelf === "read");
+
+step 5
+on the single book component we have an array of book =[{ url, book title, book author, shelf }] let
+const Book = ({ book, title }) => {
+
+    return (
+        <div className="book">
+            <div className="book-top">
+                <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.url})`}}></div>
+                <div className="book-shelf-changer">
+                    <select defaultValue={book.shelf }> //this will show where the books are when we click select.
+                        <option value="move" disabled>Move to...</option>
+                        <option value="currentlyReading">Currently Reading</option>
+                        <option value="wantToRead">Want to Read</option>
+                        <option value="read">Read</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+            </div>
+            <div className="book-title">{book.title}</div>
+            <div className="book-authors">{book.author}</div>
+        </div>
+    )
+
+}
+
+export default Book;
+
+step 6
+creating all components and adjust the app.js file. using the components
+
+step 7 Managing State
+i use function components so am able to use the react hooks.
+step 7.1
+ useState() hook.
+on App.js
+
+const [showSearchpage, setShowSearchPage] = useState(false)
+
+<div className="app">
+showSearchpage ? (
+    serch elements
+    button className= "close-search" onClick= {() =>setShowSearchPage(false)}> Close </button>
+)
+
+step7.2
+const [books, setBooks] = useState([])
+
+const updateBookShelf = (book, whereTo) => {
+    const updatedBooks = books.map(b => {
+      if (b.id === book.id) {
+        book.shelf = whereTo;
+        return book;
+      }
+      return b;
+setBooks(updatedBooks)
+
+7.3
+books component.
+we add onChange()function on the <select/> element
+<select defaultValue={book.shelf} onChange{(e) =>} />
+
+7.4 using updatedBookShelf as a prop.
+we can use it as input in all other components.
+const Book = ({ book, changeBookShelf }) =>
+const Shelf = ({ books, title, updateBookShelf }) => 
+const Shelves = ({books, updateBookShelf})=>
+
+step8
+Managing Api
+
+in class based conmponents it used 
+componentDidMount(),componentWillMount() and componentDidUpDate is used in functional component i am going to use useEffect() hook
+
+8.1 useEffect{()}
+we can use the book api.getall() to get the books arrey 
+8.2
+we can change the state locally and the backendapi using
+books.api 
+update()
+
+step 9
+we can useEffect() method to work on the Serach method.
+inorder to mangae the state with shlves we can merege the states.
+if the books are already on shlves we don't have to search them as at select none.
+const [books, setBooks] = useState([])
+const [searchBooks, setSearchBooks] = useState([]);
+const[meregerdBooks, setMergedBooks]
+const [mapOfIdToBooks, setMapOfIdToBooks] = useState(new Map());
+
+
+step 10
+npm install react-router-dom
+inorder to use the back and forward on browser we can use the react-router.
+import{browserRouter}
+step 11 usedebounce.
+we can usedebounce() to get the limited number of api called.
+
+Resource used.
+React document, udemy Functional react document, stackOverFlow, Github/james Presit, youtube,  
+
+
